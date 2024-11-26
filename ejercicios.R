@@ -1,18 +1,18 @@
 # Valor futuro de una anualidad vencida
 valorFuturo=function(A,r,n) {
-  VF=(A*((1+r)^n - 1)/r)
+  VF=(A*((1+r)^n - 1)/r)(1+r)
   return(VF)
 }
 
 # Anualidad dada el valor futuro
 anualidad=function(VF,r, n) {
-  A=(VF*r/((1+r)^n-1))
+  A=(VF*r/((1+r)^n-1))(1+r)
   return(A)
 }
 
 # Número de pagos dada el valor futuro, tasa y anualidad
 plazo=function(VF,A,r) {
-  n=log((VF*r/A) + 1)/log(1+r)
+  n=(1+r)log((VF*r/A) + 1)/log(1+r)
   return(n)  
 }
 
@@ -30,19 +30,19 @@ print(r)
 
 # Valor actual de una anualidad vencida
 valorActual=function(A,r,n) {
-  VA=(A(((1+r)^n)-1))/(r((1+r)^n))
+  VA=((A(((1+r)^n)-1))/(r((1+r)^n)))(1+r)
   return(VA)
 }
 
 # Anualidad dada el valor actual
 anualidadValorActual=function(Va,r,n) {
-  A=(r(VA((1+r)^n)))/(((1+r)^t)-1)
+  A=(1+r)(r(VA((1+r)^n)))/(((1+r)^t)-1)
   return(A)
 }
 
 # Número de pagos dada el valor actual, tasa y anualidad
 plazoconvalorActual=function(VA,A,r) {
-  n=-log(1-((VA*r)/A))/log(1+r)
+  n=(-log(1-((VA*r)/A))/log(1+r))(1+r)
   return(n) 
 }
 
